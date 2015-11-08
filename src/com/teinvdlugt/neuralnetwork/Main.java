@@ -8,13 +8,14 @@ public class Main {
         Network network = new Network(2, 3, 1);
 
         double[][] x = {{3, 5}, {5, 1}, {10, 2}};
-        double[] y = {0.75, 0.82, 0.93};
+        double[][] y = {{0.75}, {0.82}, {0.93}};
         Network.normalize(x);
-        double[][] yHat = network.forward(x);
+        network.reduceCost(x, y);
+        /*double[][] yHat = network.forward(x);
         System.out.println(arrayToString(yHat));
 
         double[] yHat1D = column(yHat, 0);
-        System.out.println("Cost: " + Network.cost(yHat1D, y));
+        System.out.println("Cost: " + Network.cost(yHat1D, y));*/
     }
 
     public static double[] column(double[][] matrix, int column) {
